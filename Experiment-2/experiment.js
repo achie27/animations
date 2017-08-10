@@ -32,30 +32,13 @@ var distgeo, textureCube, ambient, pointLight;
 var scene2;
 var racedone, thegroup;
 var id;
-/*
-
-TODO : add chequered texture on both sides - DONE!
-TODO : add event listeners on all cars - DONE!
-TODO : decide positions of distance meter - add a thin rectangle,
-       on top of the cars, connected through a line, which will always look at the camera- done!
-TODO : add stopwatch - a cube at the top with time on all faces- done!
-TODO : repeat button- done
-TODO : help and info content -done
-todo : write seconds on totaldistance - done
-maybe : add a rope on finish
-maybe : add a streak time thing
-*/
 
 //does what it says
 function initialiseScene(){
     
     //addition of all the dts (argument in the update function)
     displayTime=0;
-
-    //scene2 = new THREE.Scene();
-    //thegroup=new THREE.Object3D();
-    //rotating=false;
-
+	
     PIEsetAreaOfInterest(-25, 10, 25, -10);
     PIEadjustCamera(30.220077630714485, 3.871295006010919, 8.329268270908972);
     PIEcamera.rotation.x=-0.2453925706644209;
@@ -476,158 +459,7 @@ function whysoasynchronous(cnt){
             }
 
             blink(col);
-            render();
-
-            
-
-            /*PIErenderer.autoClear=false;
-            PIEpauseAnimation();
-            /*rotating=true;
-            var mx=-1;
-            for(var j=1; j<=4; j++)
-                mx=Math.max(cars[j].speed, mx);
-
-            if(mx==this.speed){
-                geometry = new THREE.TextGeometry("CORRECT!!", {
-                    font : font,
-                    size : 0.3,
-                    height : 0.25,
-                    curveSegments : 3
-                });
-             
-                material=new THREE.MeshPhongMaterial({color:0x00ff00});
-            }
-            else{
-                geometry = new THREE.TextGeometry("Try Again!", {
-                    font : font,
-                    size : 0.3,
-                    height : 0.25,
-                    curveSegments : 3
-                });
-            
-                material=new THREE.MeshPhongMaterial({color:0xff0000});
-            }
-
-            for(var i=1; i<=4; i++){
-                heading2[i].visible=false;
-                heading1[i].visible=false;
-
-                PIEscene.remove(thedist[i]);
-                scene2.remove(thedist[i]);
-                thedist[i]=new THREE.Mesh(geometry, material);
-                thedist[i].translation = geometry.center();
-
-                thedist[i].castShadow=false;
-                thegroup.add(thedist[i]);
-            }
-            setdistprops();
-            PIEscene.remove(totaldistance);
-            thegroup.add(totaldistance);
-            PIEaddElement(thegroup);
-            scene2.add(thegroup);
-            rotating=true;
-            
-            scene2.add( new THREE.AmbientLight( 0xffffff ) );
-            scene2.add(totaldistance);
-            rend();
-
-            function rend(){
-                id=requestAnimationFrame(rend);
-                PIErenderer.clear();
-                PIErender();
-                PIErenderer.clearDepth();
-                PIErenderer.render(scene2, PIEcamera);
-                if(x%2){
-                    totaldistance.material.materials[0].color.setHex(0x00ff00);
-                    for(var i=0; i<100000; i++){
-                        console.log(i);
-                    }
-                }
-                else{
-                    totaldistance.material.materials[0].color.setHex(0xff0000);
-                    
-                }
-                x++;
-                if(x>=401){
-                    PIErenderer.autoClear=true;
-                    cancelAnimationFrame(id);
-                    /*rotating=false;
-                    scene2.remove(thegroup);
-                    PIEscene.remove(thegroup);
-
-                    PIEaddElement(totaldistance);
-                    thegroup.rotation.y=0;
-                    totaldistance.rotation.y=0;
-                    PIErenderer.autoClear=true;
-
-                    
-                    for(var k=0; k<thegroup.children.length; k++)
-                        thegroup.remove(thegroup.children[k]);
-             
-                    setdistprops();
-
-                    PIErender();
-                    
-                }
-            }
-
-            
-            
-            l=PIEcamera.position.x;
-            m=PIEcamera.position.y;
-            n=PIEcamera.position.z;
-            
-            function rend(){
-                id=requestAnimationFrame(rend);
-                PIErenderer.render(scene2, PIEcamera);
-                bx.rotation.z+=0.1;
-              
-                if(bx.rotation.z>=rot)
-                    cancelAnimationFrame(id);
-                
-                PIErender();
-            }
-
-            
-            rad=0;
-            var mx=-1;
-            for(var j=1; j<=4; j++)
-                mx=Math.max(cars[j].speed, mx);
-
-            if(mx==this.speed){
-                //4 rotations
-                rot=8*Math.PI;
-                geometry = new THREE.TextGeometry("CORRECT!", {
-                    font : font,
-                    size : 0.6,
-                    height : 0.25,
-                    curveSegments : 3
-                });
-             
-                material=new THREE.MeshPhongMaterial({color:0x00ff00});
-            }
-            else{
-                rot=8*Math.PI;
-                geometry = new THREE.TextGeometry("Wrong :(", {
-                    font : font,
-                    size : 0.6,
-                    height : 0.25,
-                    curveSegments : 3
-                });
-            
-                material=new THREE.MeshPhongMaterial({color:0xff0000});
-            }
-            geometry.center();
-            bx=new THREE.Mesh(geometry, material);
-            
-            bx.lookAt(PIEcamera.position);
-            bx.rotation.y=0;
-
-            scene2.add(bx);
-            PIEaddElement(bx);
-            rend();
-            */
-            
+            render();            
         }
         var hex = cars[cnt].material.materials[1].color.getHex();
         var mate = new THREE.MeshPhongMaterial({color:hex})
@@ -865,8 +697,7 @@ function ondocmousedown(event){
 }
 
 var helpContent;
-function initialiseHelp()
-{
+function initialiseHelp(){
     helpContent="";
     helpContent = helpContent + "<h2>Which is faster? (same distance test)</h2>";
     helpContent = helpContent + "<h3>About the experiment</h3>";
@@ -898,8 +729,7 @@ function initialiseHelp()
 }
 
 var infoContent;
-function initialiseInfo()
-{
+function initialiseInfo(){
     infoContent =  "";
     infoContent = infoContent + "<h2>Experiment Concepts</h2>";
     infoContent = infoContent + "<h3>About the experiment</h3>";
