@@ -55,7 +55,14 @@ function initialiseScene(){
     PIEcamera.rotation.z=0.21198171295611237;
 
     textureCube = new THREE.CubeTextureLoader()
-                .load( [ 'px.jpg', 'nx.jpg', 'py.jpg', 'ny.jpg', 'pz.jpg', 'nz.jpg' ] );
+    .load( [ 
+    	'./assets/px.jpg', 
+		'./assets/nx.jpg',
+		'./assets/py.jpg',
+		'./assets/ny.jpg',
+		'./assets/pz.jpg',
+		'./assets/nz.jpg'
+    ] );
 
     PIEscene.background=textureCube;
 
@@ -133,7 +140,7 @@ function loadExperimentElements(){
 
     //road
     loader=new THREE.TextureLoader();
-    tex=loader.load("road5.png", function(tex){
+    tex=loader.load("./assets/road5.png", function(tex){
     	material = new THREE.MeshPhongMaterial({ map:tex});
 	    geometry = new THREE.BoxGeometry( 13, 55, 0.1);
 	    road=new THREE.Mesh(geometry, material);
@@ -144,7 +151,7 @@ function loadExperimentElements(){
         PIErender();
     });
      //finishline
-    tex=loader.load("checkerboard.jpg", function(tex){
+    tex=loader.load("./assets/checkerboard.jpg", function(tex){
     	tex.wrapS=tex.wrapT=THREE.RepeatWrapping;
 	    tex.repeat.set(3, 15);
 	    material=new THREE.MeshBasicMaterial({map:tex});
@@ -172,7 +179,7 @@ function loadExperimentElements(){
         PIErender(); 
     });
     
-    loader.load("ButtonSmiley.png", function(texture){
+    loader.load("../../PIE/images/ButtonSmiley.png", function(texture){
         geometry=new THREE.Geometry();
         material=new THREE.ParticleBasicMaterial({
             size:0.75,
@@ -203,7 +210,7 @@ function loadExperimentElements(){
         system1.visible=false;
     });
 
-    loader.load("ButtonSadSmiley.png", function(texture){
+    loader.load("../../PIE/images/ButtonSadSmiley.png", function(texture){
         geometry=new THREE.Geometry();
         material=new THREE.ParticleBasicMaterial({
             size:0.75,
@@ -237,10 +244,10 @@ function loadExperimentElements(){
     //cars
     loader = new THREE.JSONLoader();
     for(var cnt=1; cnt<=4; cnt++)
-        loader.load("car"+cnt+".json", whysoasynchronous(cnt));
+        loader.load("./assets/car"+cnt+".json", whysoasynchronous(cnt));
     
     //the big parallelopiped on top (i hope its called parallelopiped)
-    loader.load("timeteller.json", function(geometry, materials) {
+    loader.load("./assets/timeteller.json", function(geometry, materials) {
         timeteller = new THREE.Mesh(geometry, new THREE.MultiMaterial(materials));
         timeteller.scale.y = 1.35;
         timeteller.scale.x = timeteller.scale.z = 1.5;
@@ -254,7 +261,7 @@ function loadExperimentElements(){
 
     //sets up all the 3d text
     loader = new THREE.FontLoader();
-    loader.load( "optimer.json", function(response){
+    loader.load( "./assets/optimer.json", function(response){
         font = response;
         matfront = new THREE.MeshBasicMaterial({color:0x333333});
         matside = new THREE.MeshBasicMaterial({color:0x111111});

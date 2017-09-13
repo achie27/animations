@@ -56,7 +56,7 @@ function loadExperimentElements(){
     
     //the hammer
     loader=new THREE.JSONLoader();
-    loader.load("hammer1.json", function(geometry, materials) {
+    loader.load("./assets/hammer1.json", function(geometry, materials) {
         thehammer = new THREE.Mesh(geometry, new THREE.MultiMaterial(materials));
         thehammer.scale.y = 0.09;
         thehammer.scale.z=thehammer.scale.x = 0.05;
@@ -76,7 +76,7 @@ function loadExperimentElements(){
     });
     
     tex=new THREE.TextureLoader();
-    tex.load("woodred.jpg", function(texture){
+    tex.load("./assets/woodred.jpg", function(texture){
         geometry=new THREE.BoxGeometry(0.05, 0.35, 3.1);
         material=new THREE.MeshPhongMaterial({map:texture});
         for(var i=0; i<2; i++){
@@ -103,7 +103,7 @@ function loadExperimentElements(){
     });
 
     loader=new THREE.TextureLoader();
-    loader.load("grid.png", function( texture ) {
+    loader.load("./assets/grid.png", function( texture ) {
         texture.wrapS = THREE.RepeatWrapping;
         texture.wrapT = THREE.RepeatWrapping;
         texture.repeat.set( 40, 40 );
@@ -129,7 +129,7 @@ function loadExperimentElements(){
     velpanel.visible=false;
 
     loader = new THREE.FontLoader();
-    loader.load("optimer.json", function(response){
+    loader.load("./assets/optimer.json", function(response){
         font = response;
 
         geometry = new THREE.TextGeometry("0.00 m/s", {

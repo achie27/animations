@@ -262,7 +262,7 @@ function loadExperimentElements(){
     initialiseScene();
     
     loader=new THREE.TextureLoader();
-    loader.load("ButtonSmiley.png", function(texture){
+    loader.load("../../PIE/images/ButtonSmiley.png", function(texture){
         geometry=new THREE.Geometry();
         material=new THREE.ParticleBasicMaterial({
             size:1.2,
@@ -293,7 +293,7 @@ function loadExperimentElements(){
         system1.visible=false;
     });
 
-    loader.load("ButtonSadSmiley.png", function(texture){
+    loader.load("../../PIE/images/ButtonSadSmiley.png", function(texture){
         geometry=new THREE.Geometry();
         material=new THREE.ParticleBasicMaterial({
             size:1.2,
@@ -352,9 +352,9 @@ function loadExperimentElements(){
     line2.rotation.z=z;
 
     loader = new THREE.JSONLoader();
-    loader.load("ruler.json", function(geometry, materials){
+    loader.load("./assets/ruler.json", function(geometry, materials){
         loader = new THREE.TextureLoader();
-        loader.load("ruler_wooden_diffuse.jpg", function(tex){
+        loader.load("./assets/ruler_wooden_diffuse.jpg", function(tex){
             for(i in materials){
                 materials[i].map=tex;
                 materials[i].color.setHex(0xffffff);
@@ -423,7 +423,7 @@ function loadExperimentElements(){
     outline[2].myid=2;
 
     loader = new THREE.FontLoader();
-    loader.load("optimer.json", function(response){
+    loader.load("./assets/optimer.json", function(response){
         font = response;
         geometry = new THREE.TextGeometry('CORRECT!', {
             font : font,

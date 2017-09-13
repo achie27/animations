@@ -57,7 +57,7 @@ function loadExperimentElements(){
     gvalpanel.rotation.y=-0.5;
     
     loader = new THREE.TextureLoader();
-    loader.load("earthmap4k.jpg", function(texture){
+    loader.load("./assets/earthmap4k.jpg", function(texture){
         geometry = new THREE.SphereGeometry(2, 60, 60);
         material = new THREE.MeshPhongMaterial({map:texture});
         material.color.r=material.color.g=0.8;
@@ -67,7 +67,7 @@ function loadExperimentElements(){
         PIErender();
     });
 
-    loader.load("earth_clouds_1024.png", function(texture){
+    loader.load("./assets/earth_clouds_1024.png", function(texture){
         geometry = new THREE.SphereGeometry(2.0375, 20, 20);
         material = new THREE.MeshPhongMaterial({map : texture});
         material.transparent=true;
@@ -76,7 +76,7 @@ function loadExperimentElements(){
     });
 
     loader = new THREE.FontLoader();
-    loader.load("optimer.json", function(response){
+    loader.load("./assets/optimer.json", function(response){
         font = response;
         geometry = new THREE.TextGeometry("9.81 m/s2", {
             font : font,
@@ -107,7 +107,7 @@ function loadExperimentElements(){
     });
 
     loader=new THREE.TextureLoader();
-    loader.load("space.jpg", function(tex){
+    loader.load("./assets/space.jpg", function(tex){
         tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
         tex.repeat.set( 5, 5 );
         tex.anisotropy = 16;
