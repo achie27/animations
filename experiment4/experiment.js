@@ -28,9 +28,6 @@ function initialiseScene(){
     
     if(document.getElementsByTagName('div')[0].clientHeight-PIErenderer.domElement.height<0)
         a=40;
-    
-    
-
 }
 
 function loadExperimentElements(){
@@ -52,7 +49,6 @@ function loadExperimentElements(){
     latlongpanel.lookAt(PIEcamera);
     scene2.add(latlongpanel);
     latlongpanel.rotation.y=0.5;
-    //PIEaddElement(latlongpanel);
 
     gvalpanel = new THREE.Mesh(geometry, material);
     gvalpanel.position.set(6.5, 0, 0);
@@ -129,15 +125,6 @@ function loadExperimentElements(){
     PIEaddElement(highlight);
     highlight.castShadow=false;
 
-/*
-    ambientLight = new THREE.AmbientLight(0x111111);
-    PIEscene.add(ambientLight);
-
-    // add sunlight (light
-    directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-    directionalLight.position = new THREE.Vector3(100,10,-50);
-    PIEscene.add(directionalLight);
-*/
     initialiseControls();
     resetExperiment();
 }
@@ -154,8 +141,6 @@ function ondocmousemove(event){
     if(intersects.length){
         var pt = intersects[0].point;
         highlight.position.set(pt.x, pt.y, pt.z);
-        //latlongpanel.position.set(pt.x, pt.y, pt.z);
-        //latlongpanel.lookAt(PIEcamera.position);
         highlight.material.color.setHex(0xffffff);
     }
 }
@@ -172,13 +157,11 @@ function ondocmousedown(event){
     
     if(intersects.length){
         var pt = intersects[0].point;
-        //pt.x = pt.x<0? -pt.x : pt.x;
-        //pt.y = pt.y<0? -pt.y : pt.y;
-        //pt.z = pt.z<0? -pt.z : pt.z;
-
+        
         //m=6367/2
         //c=0
         //y=(6367/2)*x
+        
         highlight.position.set(pt.x, pt.y, pt.z);
         highlight.material.color.setHex(0x00aaaa);
 
@@ -209,14 +192,6 @@ function updateExperimentElements(t, dt){
     earth.rotation.y+=0.00075;
     clouds.rotation.y+=0.00125;
 
-    //var a = PIEcamera.position;
-    //stars.position.set(-a.x, -a.y, -a.z-10);
-    //stars.lookAt(PIEcamera.position);
-
-    //var p = PIEcamera.position;
-    /*if(p.x)
-        latlongpanel.position.set(0.1*p.x, 0.4*p.y, 0.4*p.z);
-    latlongpanel.lookAt(PIEcamera.position);*/
     PIErenderer.clear();
     PIErenderer.render(scene2, cam2);
     PIErenderer.clearDepth();
@@ -253,7 +228,6 @@ function resetExperiment(){
         initialiseOtherVariables();
     }
 }
-
 
 var helpContent;
 function initialiseHelp()

@@ -14,10 +14,12 @@ function initialiseScene(){
 
     PIEscene.background=new THREE.Color( 0xbfd1e5 );
     PIEscene.add(new THREE.AmbientLight(0x606060));
+    
     document.addEventListener('mousedown', ondocmousedown, false);
     document.addEventListener('mousemove', onDocumentMouseMove, false);
     document.addEventListener('keypress', onDocumentKeyPress, false );
-	document.addEventListener('keydown', onDocumentKeyDown, false );	
+	document.addEventListener('keydown', onDocumentKeyDown, false );
+	
     nos=[], headings=[], mesh1=[], mesh2=[], mesh=[];
     obj=1, once=yep=false;
     yep=true;
@@ -27,27 +29,6 @@ function initialiseScene(){
     panels=[], boxes=[], outline=[];
 	scene2=new THREE.Scene();
 	same=false;
-    
-    /*d1=document.createElement('div');
-    d1.style.position="absolute";
-    d1.style.display = "inline";
-    d1.style.fontSize="2vw";
-    d1.style.width='27vw';
-    d1.style.left="50%";
-    d1.style.top="50%";
-    d1.style.marginLeft='-13.5vw';
-    d1.innerHTML="<u><b>CLICK</u></b> IF THIS IS GREATER";
-    PIEscreenElem.appendChild(d1);*/
-    /*
-    d2=document.createElement('div');
-    d2.style.position="absolute";
-    d2.style.display = "inline";
-    d2.style.fontSize="20px";
-    d2.style.left="68.5%";
-    d2.style.top="25%";
-    d2.innerHTML="<u><b>CLICK</u></b> IF THIS IS GREATER";
-    PIEscreenElem.appendChild(d2);
-    */
 }
 
 function onDocumentMouseMove( event ) {
@@ -384,14 +365,12 @@ function loadExperimentElements(){
     	for(var i in mesh2)
     		PIEscene.remove(mesh2[i]);
     	
-    	// for(var i in mesh)
-    	// 	PIEscene.remove(mesh[i]);
-    	
-    	// panels[0].visible=false;
-    	// panels[1].visible=true;
     	PIEscene.remove(res);
     	
-    	mx= Math.max(text1.indexOf('.')==-1? text1.length :text1.indexOf('.'), text0.indexOf('.')==-1? text0.length :text0.indexOf('.'));
+    	mx=Math.max(
+    		text1.indexOf('.')==-1? text1.length :text1.indexOf('.'), 
+    		text0.indexOf('.')==-1? text0.length :text0.indexOf('.')
+    	);
     	
     	var dot = text0.indexOf('.');
     	if(dot==-1)
@@ -410,7 +389,9 @@ function loadExperimentElements(){
 				size : 0.65,
 				height : 0.5
 			});
-			mesh1[dot-1-i]=new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({color:0xffffff}));
+			mesh1[dot-1-i]=new THREE.Mesh(
+				geometry, new THREE.MeshBasicMaterial({color:0xffffff})
+			);
 			mesh1[dot-1-i].translation = geometry.center();
 			PIEaddElement(mesh1[dot-1-i]);
 			mesh1[dot-1-i].castShadow=false;
@@ -529,19 +510,6 @@ function loadExperimentElements(){
 
 		}
 		else if(dot>a){
-			// var geometry = new THREE.TextGeometry(text1[0]+' > 0', {
-			// 	font : font,
-			// 	size : 0.4,
-			// 	height : 0.5
-			// });
-			// mesh[0]=new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({color:0xeeee77}));
-			// mesh[0].translation = geometry.center();
-			// PIEaddElement(mesh[0]);
-			// mesh[0].position.y=3;
-			// mesh[0].lookAt(PIEcamera.position);
-			// mesh[0].material.transparent=true;
-			// mesh[0].material.opacity=0;
-
 			geometry = new THREE.TextGeometry('>', {
 				font : font,
 				size : 2.4,
@@ -561,26 +529,7 @@ function loadExperimentElements(){
 			
 			var i = 0, j=0;
 			if(text0!=text1){
-				// while(text0[j]==text1[j]){
-				// 	var geometry = new THREE.TextGeometry(text1[j]+' = '+text0[j], {
-				// 		font : font,
-				// 		size : 0.4,
-				// 		height : 0.5
-				// 	});
-				// 	mesh[i]=new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({color:0xeeee77}));
-				// 	mesh[i].translation = geometry.center();
-				// 	PIEaddElement(mesh[i]);
-				// 	mesh[i].position.y=-i+4;
-				// 	mesh[i].lookAt(PIEcamera.position);
-				// 	mesh[i].material.transparent=true;
-				// 	mesh[i].material.opacity=0;
-				// 	j++, i++;
-				// 	if(text0[j]=='.')	j++;
-				// 	if(!text0[j] && text1[j])
-				// 		text0+='0';
-				// 	else if(!text1[j] && text0[j])
-				// 		text1+='0';	
-				// }
+				
 				i=dot-1;
 				var b=true;
 				while(text0[j]==text1[j]){
@@ -607,19 +556,7 @@ function loadExperimentElements(){
 					theobj2=mesh1[i];
 				}
 				f=i;
-				// var geometry = new THREE.TextGeometry(c, {
-				// 	font : font,
-				// 	size : 0.4,
-				// 	height : 0.5
-				// });
-				// mesh[i]=new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({color:0xeeee77}));
-				// mesh[i].translation = geometry.center();
-				// PIEaddElement(mesh[i]);
-				// mesh[i].position.y=-i+4;
-				// mesh[i].lookAt(PIEcamera.position);
-				// mesh[i].material.transparent=true;
-				// mesh[i].material.opacity=0;
-
+			
 				geometry = new THREE.TextGeometry(x, {
 					font : font,
 					size : 2.4,
@@ -635,25 +572,6 @@ function loadExperimentElements(){
 			}
 			else{
 				var i =0;
-				// for(j in text0){
-				// 	if(text0[j]=='.')
-				// 		continue;
-				// 	var geometry = new THREE.TextGeometry(text0[j]+' = '+text1[j], {
-				// 		font : font,
-				// 		size : 0.4,
-				// 		height : 0.5
-				// 	});
-				// 	mesh[i]=new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({color:0xeeee77}));
-				// 	mesh[i].translation = geometry.center();
-				// 	PIEaddElement(mesh[i]);
-				// 	mesh[i].position.y=-i+4;
-				// 	mesh[i].lookAt(PIEcamera.position);
-				// 	mesh[i].material.transparent=true;
-				// 	mesh[i].material.opacity=0;
-				// 	i++;
-				// }
-
-				
 				same=true;
 				geometry = new THREE.TextGeometry('==', {
 					font : font,
@@ -669,19 +587,7 @@ function loadExperimentElements(){
 			}
 		}
 		else{
-			// var geometry = new THREE.TextGeometry(text0[0]+' > 0', {
-			// 	font : font,
-			// 	size : 0.4,
-			// 	height : 0.5
-			// });
-			// mesh[0]=new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({color:0xeeee77}));
-			// mesh[0].translation = geometry.center();
-			// PIEaddElement(mesh[0]);
-			// mesh[0].position.y=3;
-			// mesh[0].lookAt(PIEcamera.position);
-			// mesh[0].material.transparent=true;
-			// mesh[0].material.opacity=0;
-
+			
 			geometry = new THREE.TextGeometry('<', {
 				font : font,
 				size : 2.4,
@@ -702,9 +608,6 @@ function loadExperimentElements(){
 		boxes[2].visible=false;
 		boxes[3].visible=false;
 
-		// panels[0].visible=true;
-		// panels[1].visible=true;
-		// panels[2].visible=true;
 		PIErender();
     };
 
@@ -714,8 +617,7 @@ function loadExperimentElements(){
     	system1.visible=false;
     	system2.visible=false;
     	PIEresumeAnimation();
-    	// panels[0].material.color.setHex(0x651FFF);
-    	// panels[2].material.color.setHex(0xffffff);
+    	
     	cond=false;
     	same=false;
 
@@ -764,9 +666,6 @@ function loadExperimentElements(){
 		for(i=3; i<=7; i++)
 			headings[i].visible=false;
 
-		// panels[0].visible=true;
-		// panels[1].visible=true;
-		// panels[2].visible=true;
     };
 
     oi.f4=function(){
@@ -789,9 +688,6 @@ function loadExperimentElements(){
     		PIEscene.remove(mesh1[i]);
     	for(var i in mesh2)
     		PIEscene.remove(mesh2[i]);
-    	// for(var i in mesh)
-    	// 	PIEscene.remove(mesh[i]);
-
     	PIEscene.remove(res);
     	headings[2].visible=false;
 
@@ -802,9 +698,6 @@ function loadExperimentElements(){
     	boxes[2].visible=true;
     	boxes[3].visible=true;
 
-  //   	panels[0].visible=false;
-		// panels[1].visible=false;
-		// panels[2].visible=false;
     };
 
     a=new THREE.BoxGeometry(4.5,1.5,0.5);
@@ -901,47 +794,6 @@ function loadExperimentElements(){
 		nos[0].position.x=6;
 		nos[0].lookAt(PIEcamera.position);
 		headings[0].lookAt(PIEcamera.position);
-
-		// geometry = new THREE.TextGeometry("> Choose your numbers, then Compute.", {
-	 //        font : font,
-  //           size : 0.2,
-  //           height : 0,
-  //           curveSegments : 3
-  //       });
-		
-		// panels[0]=new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({color:0x651FFF}));
-		// panels[0].translation = geometry.center();
-		// PIEaddElement(panels[0]);
-		// panels[0].position.set(-8, 4.2, 0)
-		// //panels[0].lookAt(PIEcamera.position);
-
-		// geometry = new THREE.TextGeometry("> Arrange them wrt the point.", {
-	 //        font : font,
-  //           size : 0.2,
-  //           height : 0,
-  //           curveSegments : 3
-  //       });
-		
-		// panels[1]=new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({color:0xffffff}));
-		// panels[1].translation = geometry.center();
-		// PIEaddElement(panels[1]);
-		// panels[1].position.set(-3, 4.2, 0)
-		// //panels[1].lookAt(PIEcamera.position);
-		// //panels[1].visible=false;
-
-		// geometry = new THREE.TextGeometry("> Compare the individual digits.", {
-	 //        font : font,
-  //           size : 0.2,
-  //           height : 0	,
-  //           curveSegments : 3
-  //       });
-		
-		// panels[2]=new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({color:0xffffff}));
-		// panels[2].translation = geometry.center();
-		// PIEaddElement(panels[2]);
-		// panels[2].position.set(1.5, 4.2, 0)
-		//panels[2].lookAt(PIEcamera.position);
-		//panels[2].visible=false;
 
 		geometry = new THREE.TextGeometry('Click on the correct statement!', {
 			font : font,
@@ -1060,15 +912,8 @@ function updateExperimentElements(t, dt){
 		if(e==Math.max(text1.length, text0.length))
 			cond=true;
 
-		// panels[0].material.color.setHex(0xffffff);
-		// panels[1].material.color.setHex(0x651FFF);
-		// panels[2].material.color.setHex(0xffffff);
 	}
 	if(cond){
-		// panels[2].material.color.setHex(0x651FFF);
-		// panels[1].material.color.setHex(0xffffff);
-		// panels[0].material.color.setHex(0xffffff);
-
 		if(f==a1){
 			theobj1.material.color.setHex(0x00aa00);
 			theobj2.material.color.setHex(0x000000);
@@ -1096,34 +941,6 @@ function updateExperimentElements(t, dt){
 			res.material.opacity+=0.025;
 		}
 	}
-	/*
-	for(i=0; i<3; i++){
-		if(panels[i].scale.x<=0.95){
-			v=1;
-		}
-		else if(panels[i].scale.x>=1.05){
-			v=-1;
-		}
-		panels[i].scale.x+=0.001*v;
-		panels[i].scale.y+=0.001*v;
-		panels[i].scale.z+=0.001*v;
-	}
-	*/
-	/*if(res){
-		res.rotation.y+=0.04;
-		nos[0].material.color.setHex(Math.random()*0xffffff);
-		res.scale.x+=0.01, res.scale.y+=0.01, res.scale.z+=0.01;
-	}*/
-
-	/*for(i=0; i<3; i++){
-		if(panels[i].rotation.z<=-0.05){
-			v=1;
-		}
-		else if(panels[i].rotation.z>=0.05){
-			v=-1;
-		}
-		panels[i].rotation.z+=0.005*v;
-	}*/
 }
 
 
@@ -1137,7 +954,7 @@ function initialiseControls(){
 
 
 function initialiseOtherVariables(){
-    
+    return;
 }
 
 
@@ -1186,12 +1003,6 @@ function resetExperiment(){
 
 		text0=text1="69.34";
 
-		// panels[0].material.color.setHex(0x651FFF);
-		// panels[1].material.color.setHex(0xffffff);
-		// panels[2].material.color.setHex(0xffffff);
-		// panels[1].visible=false;
-		// panels[2].visible=false;
-
 		for(i=3; i<=7; i++)
 			headings[i].visible=false;
 
@@ -1202,8 +1013,7 @@ function resetExperiment(){
     	PIErenderer.autoClear=true;
     	system1.visible=false;
     	system2.visible=false;
-    	//piestop
-    	
+    
     }
     	
 	PIEstartAnimation();
@@ -1238,3 +1048,5 @@ function initialiseInfo(){
     infoContent = infoContent + "<h2>Happy Experimenting</h2>";
     PIEupdateInfo(infoContent);
 }
+
+// This was legit torture

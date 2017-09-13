@@ -211,12 +211,7 @@ function updateExperimentElements(t, dt){
             }
             thehammer.material.materials[i].opacity-=0.075;
         }
-        /*if(thehammer.visible){
-            x=thehammer.position.x, z=thehammer.position.z;
-            thehammer.position.x+=x*thehammer.velocity/20;
-            thehammer.position.z+=z*thehammer.velocity/20;
-            console.log(thehammer.position);
-        }*/
+        
         if(counter<15){
             PIEscene.remove(thevel);
             var a=(Math.random()*100);

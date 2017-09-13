@@ -29,20 +29,6 @@ function initialiseScene(){
     PIEcamera.position.z=10;
     document.addEventListener('mousemove', onDocumentMouseMove, false);
 
-    // //group=new THREE.Group();
-
-    // d1=document.createElement('div');
-    // d1.style.position="absolute";
-    // d1.style.display = "inline";
-    // d1.style.fontSize="2vw";
-    // //d1.style.width='27vw';
-    // d1.style.right="22%";
-    // d1.style.top="27%";
-    // d1.style.marginLeft='-13.5vw';
-    // d1.innerHTML="<b>AB's</b> length <b>=</b> ";
-    // d1.style.fontFamily="Roboto, sans-serif";
-    // PIEscreenElem.appendChild(d1);
-
     d9=document.createElement('div');
     d9.style.position="absolute";
     d9.style.display = "inline";
@@ -150,18 +136,6 @@ function initialiseScene(){
             shower(false);
         }
     };
-
-    // d2=document.createElement('div');
-    // d2.style.position="absolute";
-    // d2.style.display = "inline";
-    // d2.style.fontSize="2vw";
-    // //d2.style.width='27vw';
-    // d2.style.right="22%";
-    // d2.style.top="32%";
-    // d2.style.marginLeft='-13.5vw';
-    // d2.innerHTML="<b>CD's</b> length <b>=</b> ";
-    // d2.style.fontFamily="Roboto, sans-serif";
-    // PIEscreenElem.appendChild(d2);
 
     d3=document.createElement('div');
     d3.style.position="absolute";
@@ -288,7 +262,7 @@ function loadExperimentElements(){
     initialiseScene();
     
     loader=new THREE.TextureLoader();
-    tex=loader.load("ButtonSmiley.png", function(texture){
+    loader.load("ButtonSmiley.png", function(texture){
         geometry=new THREE.Geometry();
         material=new THREE.ParticleBasicMaterial({
             size:1.2,
@@ -319,7 +293,7 @@ function loadExperimentElements(){
         system1.visible=false;
     });
 
-    tex=loader.load("ButtonSadSmiley.png", function(texture){
+    loader.load("ButtonSadSmiley.png", function(texture){
         geometry=new THREE.Geometry();
         material=new THREE.ParticleBasicMaterial({
             size:1.2,
@@ -376,27 +350,6 @@ function loadExperimentElements(){
     line2.castShadow=false;
     line2.receiveShadow=false;
     line2.rotation.z=z;
-
-    // geometry = new THREE.BoxGeometry(0.02, 0.3, 0.1);
-    // material = new THREE.MeshPhongMaterial({color:0x00ff00});
-
-    // var i, k=0;
-    // for(i=5; i<=10; i+=0.5){
-    //  scale[k] = new THREE.Mesh(geometry, material);
-    //  scale[k].position.set(i, 5, 0);
-    //  group.add(scale[k]);
-    //  k++;
-    // }
-    // PIEaddElement(group);
-    // for(i in group.children){
-    //  group.children[i].castShadow=false;
-    //  group.children[i].receiveShadow=false;
-    // }        
-
-    // geometry = new THREE.SphereGeometry(0.05, 32, 32);
-    // circle = new THREE.Mesh(geometry, material);
-    // PIEaddElement(circle);
-    // circle.position.set(7.5 + 2, 5, 0);
 
     loader = new THREE.JSONLoader();
     loader.load("ruler.json", function(geometry, materials){
@@ -508,9 +461,6 @@ function loadExperimentElements(){
         headings[2].castShadow=false;
         headings[2].visible=true;
         headings[2].position.set(2.5-1.5, 5, -10.75);
-        // headings[2].position.y+=((line1.scale.x/2)*Math.sin(Math.atan(line1.rotation.z > Math.PI/2 ? line1.rotation.z - Math.PI/2 : line1.rotation.z )));
-        // headings[2].position.x+=((line1.scale.x/2)*Math.cos(Math.atan(line1.rotation.z > Math.PI/2 ? line1.rotation.z - Math.PI/2 : line1.rotation.z )));
-        //headings[2].rotation.z=line1.rotation.z;
         headings[2].lookAt(PIEcamera.position);
 
         geometry = new THREE.BoxGeometry(0.75, 0.5, 1);
@@ -566,114 +516,7 @@ function loadExperimentElements(){
         headings[5].visible=true;
         headings[5].position.set(9.8, 5.75, 1);
 
-        // geometry = new THREE.TextGeometry('Click on the correct statement!', {
-        //     font : font,
-        //     size : 0.18,
-        //     height : 0.02
-        // });
-        // headings[4]=new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({color:0x111155}));
-        // headings[4].translation = geometry.center();
-        // PIEaddElement(headings[4]);
-        // headings[4].position.set(10.7, 5, 0);
-        // //headings[3].visible=false;
-        // headings[4].lookAt(PIEcamera.position);
-
-    //     geometry = new THREE.TextGeometry('A', {
-    //         font : font,
-    //         size : 0.2,
-    //         height : 0.02
-    //     });
-    //     headings[2]=new THREE.Mesh(geometry, new THREE.MeshPhongMaterial({color:0x0000ff}));
-    //     headings[2].translation = geometry.center();
-    //     PIEaddElement(headings[2]);
-    //     headings[2].castShadow=false;
-    //     headings[2].visible=true;
-    //     headings[2].position.set(2.5, 5, -10.75);
-    //     headings[2].position.y+=((line1.scale.x/2)*Math.sin(Math.atan(line1.rotation.z > Math.PI/2 ? line1.rotation.z - Math.PI/2 : line1.rotation.z )));
-    //     headings[2].position.x+=((line1.scale.x/2)*Math.cos(Math.atan(line1.rotation.z > Math.PI/2 ? line1.rotation.z - Math.PI/2 : line1.rotation.z )));
-    //     //headings[2].rotation.z=line1.rotation.z;
-    //     headings[2].lookAt(PIEcamera.position);
-
-    //     geometry = new THREE.TextGeometry('B', {
-    //         font : font,
-    //         size : 0.2,
-    //         height : 0.02
-    //     });
-    //     headings[3]=new THREE.Mesh(geometry, new THREE.MeshPhongMaterial({color:0x0000ff}));
-    //     headings[3].translation = geometry.center();
-    //     PIEaddElement(headings[3]);
-    //     headings[3].castShadow=false;
-    //     headings[3].visible=true;
-    //     headings[3].position.set(2.5, 5, -10.75);
-    //     headings[3].position.y-=((line1.scale.x/2)*Math.sin(Math.atan(line1.rotation.z > Math.PI/2 ? line1.rotation.z - Math.PI/2 : line1.rotation.z )));
-    //     headings[3].position.x-=((line1.scale.x/2)*Math.cos(Math.atan(line1.rotation.z > Math.PI/2 ? line1.rotation.z - Math.PI/2 : line1.rotation.z )));
-    //     //headings[3].rotation.z=line1.rotation.z;
-    //     headings[3].lookAt(PIEcamera.position);
-
-    //     geometry = new THREE.TextGeometry('C', {
-    //         font : font,
-    //         size : 0.2,
-    //         height : 0.02
-    //     });
-    //     headings[4]=new THREE.Mesh(geometry, new THREE.MeshPhongMaterial({color:0x0000ff}));
-    //     headings[4].translation = geometry.center();
-    //     PIEaddElement(headings[4]);
-    //     headings[4].castShadow=false;
-    //     headings[4].visible=true;
-    //     headings[4].position.set(4, 5, -10.75);
-    //     headings[4].position.y+=((line2.scale.x/2)*Math.sin(Math.atan(line2.rotation.z > Math.PI/2 ? line2.rotation.z - Math.PI/2 : line2.rotation.z )));
-    //     headings[4].position.x+=((line2.scale.x/2)*Math.cos(Math.atan(line2.rotation.z > Math.PI/2 ? line2.rotation.z - Math.PI/2 : line2.rotation.z )));
-    //     //headings[4].rotation.z=line2.rotation.z;
-    //     headings[4].lookAt(PIEcamera.position);
-
-    //     geometry = new THREE.TextGeometry('D', {
-    //         font : font,
-    //         size : 0.2,
-    //         height : 0.02
-    //     });
-    //     headings[5]=new THREE.Mesh(geometry, new THREE.MeshPhongMaterial({color:0x0000ff}));
-    //     headings[5].translation = geometry.center();
-    //     PIEaddElement(headings[5]);
-    //     headings[5].castShadow=false;
-    //     headings[5].visible=true;
-    //     headings[5].position.set(4, 5, -10.75);
-    //     headings[5].position.y-=((line2.scale.x/2)*Math.sin(Math.atan(line2.rotation.z > Math.PI/2 ? line2.rotation.z - Math.PI/2 : line2.rotation.z )));
-    //     headings[5].position.x-=((line2.scale.x/2)*Math.cos(Math.atan(line2.rotation.z > Math.PI/2 ? line2.rotation.z - Math.PI/2 : line2.rotation.z )));
-    //     //headings[5].rotation.z=line1.rotation.z;
-    //     headings[5].lookAt(PIEcamera.position);
-
     });
-
-    // a=new THREE.BoxGeometry(1, 1, 0.5);
-    // m=new THREE.MeshPhongMaterial({color:0x050516});
-    // boxes[0]=new THREE.Mesh(a, m);
-    // PIEaddElement(boxes[0]);
-    // boxes[0].myid=0;
-    // boxes[0].position.set(-6.2,1.5,-0.5);
-    // boxes[0].lookAt(PIEcamera.position);
-
-    // var oum=new THREE.MeshBasicMaterial({color:0xfffff0, side: THREE.BackSide});
-    // outline[0]= new THREE.Mesh(a, oum); 
-    // outline[0].position.copy(boxes[0].position);
-    // outline[0].scale.multiplyScalar(1.05);
-    // outline[0].lookAt(PIEcamera.position);
-    // PIEaddElement(outline[0]);
-    // outline[0].castShadow=false;
-    // outline[0].myid=1;
-
-    // boxes[1]=new THREE.Mesh(a, m);
-    // PIEaddElement(boxes[1]);
-    // boxes[1].position.set(6.2,1.5,-0.5);
-    // boxes[1].lookAt(PIEcamera.position);
-    // boxes[1].myid=1;
-
-    // outline[1]= new THREE.Mesh(a, oum); 
-    // outline[1].position.copy(boxes[1].position);
-    // outline[1].scale.multiplyScalar(1.05);
-    // outline[1].lookAt(PIEcamera.position);
-    // PIEaddElement(outline[1]);
-    // outline[1].myid=0;
-    // outline[1].castShadow=false;
 
     initialiseControls();
     resetExperiment();
@@ -693,23 +536,7 @@ function rulerdrag(obj, newpos){
 
 
 function updateExperimentElements(t, dt){
-    // if(!PIElastUpdateTime)
-    //     return;
-    
-    // if(cond && line1 && ruler && ruler.rotation.y<line1.rotation.z ){
-    //     ruler.rotation.y+=0.05;
-    //     cond=false;
-    // }
-    // if(cond && line1 && ruler && ruler.rotation.y>line1.rotation.z){
-    //     ruler.rotation.y-=0.05;
-    //     cond=false;
-    // }
-    // else if(line1 && ruler && ruler.position.x<line1.position.x && ruler.position.x+0.05!=line1.position.x){
-    //     ruler.position.x+=0.05;
-    // }
-    // else if(line1 && ruler && ruler.position.y<line1.position.y && ruler.position.y!=line1.position.y){
-    //     ruler.position.y+=0.05;
-    // }
+    return;
 }
 
 
@@ -738,15 +565,9 @@ function initialiseControls(){
             headings[1].visible=true;
         }
     };
-    // 30 cm  =  6 units
-
-    // PIEdisplayGUI.add(oi, "f1", 1, 8).name("Length").onChange(function(){
-    //     line1.scale.set(oi.f1, 0.2, 0.1);
-    // });
 
     PIEdisplayGUI.add(oi, "f2", 0, 360).name("Rotate Ruler").step(0.1).onChange(function(){
         ruler.rotation.y=oi.f2*Math.PI/180;
-        //group.rotation.z=oi.f2*Math.PI/180;
     });
 
     oi.f3=function(){
@@ -796,7 +617,7 @@ function initialiseControls(){
 
 
 function initialiseOtherVariables(){
-    
+    return;
 }
 
 
@@ -815,38 +636,6 @@ function resetExperiment(){
         ruler.position.set(7.5-4.5, 1, -10);
         ruler.rotation.x=1.57;
         ruler.rotation.y=1.57;
-
-        // headings[2].position.set(2.5, 5, -10.75);
-        // a=(line1.scale.x/2+0)*Math.sin(Math.atan( line1.rotation.z > Math.PI/2 ? line1.rotation.z - Math.PI/2 : line1.rotation.z ));
-        // headings[2].position.y+=line1.rotation.z > Math.PI/2 ? a : a ;
-        // a=(line1.scale.x/2+0.2)*Math.cos(Math.atan( line1.rotation.z > Math.PI/2 ? line1.rotation.z - Math.PI/2 : line1.rotation.z ));
-        // headings[2].position.x+=line1.rotation.z > Math.PI/2 ? -a : a ;
-        // //headings[2].rotation.z=line1.rotation.z;
-        // headings[2].lookAt(PIEcamera.position);
-
-        // headings[3].position.set(2.5, 5, -10.75);
-        // a=(line1.scale.x/2)*Math.sin(Math.atan( line1.rotation.z > Math.PI/2 ? line1.rotation.z - Math.PI/2 : line1.rotation.z ));
-        // headings[3].position.y-=line1.rotation.z > Math.PI/2 ? a : a;
-        // a=(line1.scale.x/2)*Math.cos(Math.atan( line1.rotation.z > Math.PI/2 ? line1.rotation.z - Math.PI/2 : line1.rotation.z ));
-        // headings[3].position.x-=line1.rotation.z > Math.PI/2 ? -a : a ;
-        // //headings[3].rotation.z=line1.rotation.z;
-        // headings[3].lookAt(PIEcamera.position);
-
-        // headings[4].position.set(4, 5, -10.75);
-        // a=(line2.scale.x/2)*Math.sin(Math.atan( line2.rotation.z > Math.PI/2 ? line2.rotation.z - Math.PI/2 : line2.rotation.z ));
-        // headings[4].position.y+=line2.rotation.z > Math.PI/2 ? a : a;
-        // a=(line2.scale.x/2)*Math.cos(Math.atan( line2.rotation.z > Math.PI/2 ? line2.rotation.z - Math.PI/2 : line2.rotation.z ));
-        // headings[4].position.x+=line2.rotation.z > Math.PI/2 ? -a : a;
-        // //headings[4].rotation.z=line2.rotation.z;
-        // headings[4].lookAt(PIEcamera.position);
-
-        // headings[5].position.set(4, 5, -10.75);
-        // a=(line2.scale.x/2)*Math.sin(Math.atan( line2.rotation.z > Math.PI/2 ? line2.rotation.z - Math.PI/2 : line2.rotation.z))
-        // headings[5].position.y-=line2.rotation.z > Math.PI/2 ? a : a;
-        // a=(line2.scale.x/2)*Math.cos(Math.atan(line2.rotation.z > Math.PI/2 ? line2.rotation.z - Math.PI/2 : line2.rotation.z));
-        // headings[5].position.x-=line2.rotation.z > Math.PI/2 ? -a : a;
-        // //headings[5].rotation.z=line1.rotation.z;
-        // headings[5].lookAt(PIEcamera.position);
 
         d3.innerHTML="<b>0.0";
         d4.innerHTML="<b>0.0";
@@ -885,3 +674,5 @@ function initialiseInfo(){
     infoContent = infoContent + "<h2>Happy Experimenting</h2>";
     PIEupdateInfo(infoContent);
 }
+
+// This was legit torture - 2.0

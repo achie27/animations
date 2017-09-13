@@ -121,7 +121,6 @@ function loadExperimentElements(){
         panel.lookAt(PIEcamera.position);
         
         PIErender();
-        //thetime.visible=false;
     });
 
     loader=new THREE.TextureLoader();
@@ -203,9 +202,6 @@ function updateExperimentElements(t, dt){
 
         acc = -2.5;
         vel = vel + (acc*dt*0.001);
-            //ball.vy = -Math.sin(phi) * vel;
-        //ball.vx = Math.cos(phi) * vel;
-    
         
         x = ball.position.x - vel*dt*0.001;
         y=0.50;
