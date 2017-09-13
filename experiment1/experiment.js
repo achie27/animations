@@ -164,7 +164,7 @@ function loadExperimentElements(){
         PIErender(); 
     });
 
-    loader.load( '../../../PIE/images/grasslight-big.jpg', function(tex){
+    loader.load( '../PIE/images/grasslight-big.jpg', function(tex){
     	tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
 	    tex.repeat.set( 2000, 2000 );
 	    tex.anisotropy = 16;
@@ -179,7 +179,7 @@ function loadExperimentElements(){
         PIErender(); 
     });
     
-    loader.load("../../../PIE/images/ButtonSmiley.png", function(texture){
+    loader.load("../PIE/images/ButtonSmiley.png", function(texture){
         geometry=new THREE.Geometry();
         material=new THREE.ParticleBasicMaterial({
             size:0.75,
@@ -210,7 +210,7 @@ function loadExperimentElements(){
         system1.visible=false;
     });
 
-    loader.load("../../../PIE/images/ButtonSadSmiley.png", function(texture){
+    loader.load("../PIE/images/ButtonSadSmiley.png", function(texture){
         geometry=new THREE.Geometry();
         material=new THREE.ParticleBasicMaterial({
             size:0.75,
