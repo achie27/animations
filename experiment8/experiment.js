@@ -262,7 +262,7 @@ function loadExperimentElements(){
     initialiseScene();
     
     loader=new THREE.TextureLoader();
-    loader.load("../../PIE/images/ButtonSmiley.png", function(texture){
+    loader.load("/PIE/images/ButtonSmiley.png", function(texture){
         geometry=new THREE.Geometry();
         material=new THREE.ParticleBasicMaterial({
             size:1.2,
@@ -293,7 +293,7 @@ function loadExperimentElements(){
         system1.visible=false;
     });
 
-    loader.load("../../PIE/images/ButtonSadSmiley.png", function(texture){
+    loader.load("/PIE/images/ButtonSadSmiley.png", function(texture){
         geometry=new THREE.Geometry();
         material=new THREE.ParticleBasicMaterial({
             size:1.2,
