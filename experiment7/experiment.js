@@ -285,7 +285,7 @@ function loadExperimentElements(){
     PIEsetAreaOfInterest(-5, 5, 5, -5);
 
     loader=new THREE.TextureLoader();
-    tex=loader.load("/PIE/images/ButtonSmiley.png", function(texture){
+    tex=loader.load("assets/ButtonSmiley.png", function(texture){
         geometry=new THREE.Geometry();
         material=new THREE.ParticleBasicMaterial({
             size:1.2,
@@ -318,7 +318,7 @@ function loadExperimentElements(){
         oi.f2();
     });
 
-    tex=loader.load("/PIE/images/ButtonSadSmiley.png", function(texture){
+    tex=loader.load("assets/ButtonSadSmiley.png", function(texture){
         geometry=new THREE.Geometry();
         material=new THREE.ParticleBasicMaterial({
             size:1.2,
@@ -732,7 +732,7 @@ function loadExperimentElements(){
 	outline[1].castShadow=false;
 
     loader = new THREE.FontLoader();
-    loader.load("optimer.json", function(response){
+    loader.load("assets/optimer.json", function(response){
         
         font = response;
         geometry = new THREE.TextGeometry(69.34, {
